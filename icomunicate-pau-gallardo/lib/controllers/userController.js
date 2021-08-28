@@ -22,6 +22,17 @@ export async function createNewUser(req, res) {
   }
 }
 
+export async function getOneUser(req, res) {
+  const { userId } = req.query;
+  try {
+    const foundUser = await User.findById(userId);
+    res.send(foundUser);
+    res.status(200);
+  } catch (error) {
+    handleError(error, res);
+  }
+}
+
 export async function deleteUser(req, res) {
   const { userId } = req.query;
   try {

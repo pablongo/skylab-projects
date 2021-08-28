@@ -7,8 +7,6 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
-    'next',
-    'next/babel',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -21,6 +19,5 @@ module.exports = {
     'react',
   ],
   rules: {
-    'jsx-a11y/anchor-is-valid': 0,
   },
 };

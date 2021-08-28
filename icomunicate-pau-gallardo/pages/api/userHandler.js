@@ -1,19 +1,20 @@
 import connectDB from '../../middlewares/mongodb';
+import { createNewUser } from '../../lib/controllers/userController';
 
 const userHandler = async (req, res) => {
   switch (req.method) {
-    case "POST":
-      
-      break;
-      
-    case "GET":
-      
+    case 'POST':
+      await createNewUser(req, res);
       break;
 
-    case "DELETE":
-      
+    case 'GET':
+
       break;
-  
+
+    case 'DELETE':
+
+      break;
+
     default:
       break;
   }

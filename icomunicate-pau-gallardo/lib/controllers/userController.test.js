@@ -13,7 +13,7 @@ describe('Given a createNewUser function', () => {
           body: { email: 'asda' },
         };
 
-        User.create.mockReturnedValue({});
+        User.create.mockResolvedValue({});
 
         await createNewUser(req, res);
 

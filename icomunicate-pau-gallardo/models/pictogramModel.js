@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
-const user = new Schema({
+const pictogram = new Schema({
   text: {
     type: String,
     required: true,
@@ -15,14 +15,11 @@ const user = new Schema({
     type: String,
     required: true,
   },
-  metadata: {
-    type: String,
-    required: true,
-  },
+  metadata: [String],
 });
 
 mongoose.models = {};
 
-const User = mongoose.model('User', user);
+const Pictogram = mongoose.model('Pictogram', pictogram);
 
-export default User;
+export default Pictogram;

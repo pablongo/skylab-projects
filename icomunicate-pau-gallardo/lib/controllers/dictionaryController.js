@@ -22,10 +22,10 @@ export async function getOneDictionary(req, res) {
   }
 }
 
-export async function deleteUser(req, res) {
-  const { userId } = req.query;
+export async function deleteDictionary(req, res) {
+  const { dictionaryId } = req.query;
   try {
-    const deletedUser = await Dictionary.findByIdAndDelete(userId);
+    const deletedUser = await Dictionary.findByIdAndDelete(dictionaryId);
     res.send(deletedUser);
     res.status(200);
   } catch (error) {
@@ -34,11 +34,11 @@ export async function deleteUser(req, res) {
 }
 
 export async function updateUser(req, res) {
-  const { userId } = req.query;
+  const { dictionaryId } = req.query;
   const dataToUpdate = req.body;
   try {
     const updatedUser = await Dictionary.findByIdAndUpdate(
-      userId,
+      dictionaryId,
       dataToUpdate,
       { new: true },
     );

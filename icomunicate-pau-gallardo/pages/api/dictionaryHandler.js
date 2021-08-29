@@ -1,5 +1,5 @@
 import connectDB from '../../middlewares/mongodb';
-import { createNewDictionary, getOneDictionary } from '../../lib/controllers/dictionaryController';
+import { createNewDictionary, getOneDictionary, deleteDictionary } from '../../lib/controllers/dictionaryController';
 
 const dictionaryHandler = async (req, res) => {
   switch (req.method) {
@@ -12,6 +12,7 @@ const dictionaryHandler = async (req, res) => {
       break;
 
     case 'DELETE':
+      await deleteDictionary(req, res);
       break;
 
     case 'PUT':

@@ -1,5 +1,7 @@
 import connectDB from '../../middlewares/mongodb';
-import { createNewUser, deleteUser, getOneUser } from '../../lib/controllers/userController';
+import {
+  createNewUser, deleteUser, getOneUser, updateUser,
+} from '../../lib/controllers/userController';
 
 const userHandler = async (req, res) => {
   switch (req.method) {
@@ -13,6 +15,10 @@ const userHandler = async (req, res) => {
 
     case 'DELETE':
       await deleteUser(req, res);
+      break;
+
+    case 'PUT':
+      await updateUser(req, res);
       break;
 
     default:

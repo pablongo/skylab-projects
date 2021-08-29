@@ -43,3 +43,19 @@ export async function deleteUser(req, res) {
     handleError(error, res);
   }
 }
+
+export async function updateUser(req, res) {
+  const { userId } = req.query;
+  const dataToUpdate = req.body;
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      dataToUpdate,
+      { new: true },
+    );
+    res.send(updatedUser);
+    res.status(200);
+  } catch (error) {
+    handleError(error, res);
+  }
+}

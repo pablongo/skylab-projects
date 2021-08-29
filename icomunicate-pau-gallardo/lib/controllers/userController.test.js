@@ -129,5 +129,23 @@ describe('Given a updateUser function', () => {
         expect(res.send).toHaveBeenCalled();
       });
     });
+    describe('And rejectes', () => {
+      test('Then handleError should have been called', async () => {
+        const res = {
+          send: jest.fn(),
+          status: jest.fn(),
+        };
+        const req = {
+          query: { userId: '' },
+          body: {},
+        };
+
+        User.findByIdAndUpdate.mockRejectedValue({});
+
+        await updateUser(req, res);
+
+        expect(handleError).toHaveBeenCalled();
+      });
+    });
   });
 });

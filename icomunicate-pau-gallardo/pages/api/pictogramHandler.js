@@ -1,5 +1,5 @@
 import connectDB from '../../middlewares/mongodb';
-import { createPictogram } from '../../lib/controllers/pictogramController';
+import { createPictogram, deletePictogram, getPictogram } from '../../lib/controllers/pictogramController';
 
 const userHandler = async (req, res) => {
   switch (req.method) {
@@ -8,12 +8,11 @@ const userHandler = async (req, res) => {
       break;
 
     case 'GET':
+      await getPictogram(req, res);
       break;
 
     case 'DELETE':
-      break;
-
-    case 'PUT':
+      await deletePictogram(req, res);
       break;
 
     default:

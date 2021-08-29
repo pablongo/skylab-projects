@@ -11,6 +11,17 @@ export async function createPictogram(req, res) {
   }
 }
 
+export async function getPictogram(req, res) {
+  const { pictogramId } = req.query;
+  try {
+    const foundPictogram = await Pictogram.findById(pictogramId);
+    res.send(foundPictogram);
+    res.status(200);
+  } catch (error) {
+    handleError(error, res);
+  }
+}
+
 export async function deletePictogram(req, res) {
   const { pictogramId } = req.query;
   try {

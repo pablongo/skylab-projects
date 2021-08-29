@@ -1,6 +1,6 @@
 import Dictionary from '../../models/dictionaryModel';
 import handleError from '../../utils/handleError';
-import { createNewDictionary, getOneDictionary } from './dictionaryController';
+import { createNewDictionary, getOneDictionary, deleteDictionary } from './dictionaryController';
 
 jest.mock('../../models/dictionaryModel');
 jest.mock('../../utils/handleError');
@@ -74,6 +74,45 @@ describe('Given a getOneDictionary function', () => {
 
         Dictionary.findById.mockRejectedValue({});
         await getOneDictionary(req, res);
+
+        expect(handleError).toHaveBeenCalled();
+      });
+    });
+  });
+});
+
+describe('Given a deleteDictionary function', () => {
+  describe('When is invoked', () => {
+    describe('And resolves', () => {
+      test('Then req.send should have been called', async () => {
+        const req = {
+          body: {},
+          query: { dictionaryId: '' },
+        };
+        const res = {
+          send: jest.fn(),
+          status: jest.fn(),
+        };
+
+        Dictionary.findByIdAndDelete.mockResolvedValue({});
+        await deleteDictionary(req, res);
+
+        expect(res.send).toHaveBeenCalled();
+      });
+    });
+    describe('And rejectes', () => {
+      test('Then handleError should have been called', async () => {
+        const req = {
+          body: {},
+          query: { dictionaryId: '' },
+        };
+        const res = {
+          send: jest.fn(),
+          status: jest.fn(),
+        };
+
+        Dictionary.findByIdAndDelete.mockRejectedValue({});
+        await deleteDictionary(req, res);
 
         expect(handleError).toHaveBeenCalled();
       });

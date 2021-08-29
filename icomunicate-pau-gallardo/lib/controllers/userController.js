@@ -1,9 +1,5 @@
 import User from '../../models/userModel';
-
-function handleError(error, res) {
-  res.send(error);
-  res.status(500);
-}
+import handleError from '../../utils/handleError';
 
 export async function createNewUser(req, res) {
   const { email } = req.body;

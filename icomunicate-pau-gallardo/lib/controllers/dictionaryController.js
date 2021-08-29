@@ -33,7 +33,7 @@ export async function deleteDictionary(req, res) {
   }
 }
 
-export async function updateUser(req, res) {
+export async function updateDictionary(req, res) {
   const { dictionaryId } = req.query;
   const dataToUpdate = req.body;
   try {

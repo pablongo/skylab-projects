@@ -9,22 +9,61 @@ jest.mock('../../models/userModel');
 
 describe('Given a createNewUser function', () => {
   describe('When is invoked', () => {
-    describe('And resolves', () => {
-      test('Then res.send should have been called', async () => {
-        const res = {
-          send: jest.fn(),
-          status: jest.fn(),
-        };
-        const req = {
-          body: { email: 'asda' },
-        };
+    describe('And foundUser contains a user', () => {
+      describe('And resolves', () => {
+        test('Then res.send should have been called', async () => {
+          const res = {
+            send: jest.fn(),
+            status: jest.fn(),
+          };
+          const req = {
+            body: { email: 'asda' },
+          };
 
-        User.findOne.mockResolvedValue({});
-        User.create.mockResolvedValue({});
+          User.findOne.mockResolvedValue({});
 
-        await createNewUser(req, res);
+          await createNewUser(req, res);
 
-        expect(res.send).toHaveBeenCalled();
+          expect(res.send).toHaveBeenCalled();
+        });
+      });
+    });
+    describe('And foundUser is null', () => {
+      describe('And resolves', () => {
+        test('Then res.send should have been called', async () => {
+          const res = {
+            send: jest.fn(),
+            status: jest.fn(),
+          };
+          const req = {
+            body: { email: 'asda' },
+          };
+
+          User.findOne.mockResolvedValue(null);
+          User.create.mockResolvedValue({});
+
+          await createNewUser(req, res);
+
+          expect(res.send).toHaveBeenCalled();
+        });
+      });
+      describe('And rejected', () => {
+        test('Then handleError should have been called', async () => {
+          const res = {
+            send: jest.fn(),
+            status: jest.fn(),
+          };
+          const req = {
+            body: { email: 'asda' },
+          };
+
+          User.findOne.mockRejectedValue(null);
+          User.create.mockRejectedValue({});
+
+          await createNewUser(req, res);
+
+          expect(handleError).toHaveBeenCalled();
+        });
       });
     });
   });
@@ -88,7 +127,6 @@ describe('Given a deleteUser function', () => {
         expect(res.send).toHaveBeenCalled();
       });
     });
-
     describe('And rejectes', () => {
       test('Then res.send should have been called', async () => {
         const res = {

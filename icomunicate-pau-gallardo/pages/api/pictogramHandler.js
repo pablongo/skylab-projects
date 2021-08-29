@@ -1,7 +1,7 @@
 import connectDB from '../../middlewares/mongodb';
 import { createPictogram, deletePictogram, getPictogram } from '../../lib/controllers/pictogramController';
 
-const userHandler = async (req, res) => {
+const pictogramHandler = async (req, res) => {
   switch (req.method) {
     case 'POST':
       await createPictogram(req, res);
@@ -20,4 +20,4 @@ const userHandler = async (req, res) => {
   }
 };
 
-export default connectDB(userHandler);
+export default connectDB(pictogramHandler);

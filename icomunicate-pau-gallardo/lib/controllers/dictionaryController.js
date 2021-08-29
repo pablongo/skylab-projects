@@ -11,11 +11,11 @@ export async function createNewDictionary(req, res) {
   }
 }
 
-export async function getOneUser(req, res) {
-  const { userId } = req.query;
+export async function getOneDictionary(req, res) {
+  const { dictionaryId } = req.query;
   try {
-    const foundUser = await Dictionary.findById(userId);
-    res.send(foundUser);
+    const foundDictionary = await Dictionary.findById(dictionaryId);
+    res.send(foundDictionary);
     res.status(200);
   } catch (error) {
     handleError(error, res);

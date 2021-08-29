@@ -1,5 +1,7 @@
 import User from '../../models/userModel';
-import { createNewUser, getOneUser, deleteUser } from './userController';
+import {
+  createNewUser, getOneUser, deleteUser, updateUser,
+} from './userController';
 
 jest.mock('../../models/userModel');
 
@@ -63,6 +65,29 @@ describe('Given a deleteUser function', () => {
         User.findByIdAndDelete.mockReturnValue({});
 
         await deleteUser(req, res);
+
+        expect(res.send).toHaveBeenCalled();
+      });
+    });
+  });
+});
+
+describe('Given a updateUser function', () => {
+  describe('When is invoked', () => {
+    describe('And resolves', () => {
+      test('Then res.send should have been called', async () => {
+        const res = {
+          send: jest.fn(),
+          status: jest.fn(),
+        };
+        const req = {
+          query: { userId: '' },
+          body: {},
+        };
+
+        User.findByIdAndDelete.mockReturnValue({});
+
+        await updateUser(req, res);
 
         expect(res.send).toHaveBeenCalled();
       });

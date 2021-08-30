@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default function Pictogram(pictogram) {
-  const { img, title } = pictogram;
+export default function Pictogram({ pictogram }) {
+  const { img, text } = pictogram;
   return (
     <figure>
       <img src={`${img}`} alt="" />
-      <h2>{title}</h2>
+      <h2>{text}</h2>
     </figure>
   );
 }

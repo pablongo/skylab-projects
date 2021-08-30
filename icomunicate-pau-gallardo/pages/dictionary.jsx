@@ -1,9 +1,8 @@
 import React from 'react';
 import Header from '../components/Header/Header';
-// import Pictogram from '../components/Pictogram/Pictogram';
+import Pictogram from '../components/Pictogram/Pictogram';
 
-export default function dictionary(props) {
-  console.log(props);
+export default function dictionary({ pictogramList }) {
   return (
     <>
       <Header />
@@ -25,13 +24,14 @@ export default function dictionary(props) {
           id="search-pictogram"
         />
       </label>
+      <Pictogram pictogram={pictogramList[0]} />
     </>
   );
 }
 
 export async function getStaticProps() {
   let data = await fetch(
-    'http://localhost:3000/api/dictionaryHandler?dictionaryId=612d25f9e3e3cdc37a8f7ec5',
+    'http://localhost:3000/api/dictionaryHandler?dictionaryId=612d27dee3e3cdc37a8f7ecf',
   );
   data = await data.json();
   return {

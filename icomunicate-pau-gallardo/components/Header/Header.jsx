@@ -8,7 +8,7 @@ export default function Header() {
       <h1 className="nav-container__tittle">iComunicate</h1>
       <nav className="nav-container__navbar">
         <Link href="/">Home</Link>
-        <Link href="/">Global Dictionary</Link>
+        <Link href="/dictionary">Global Dictionary</Link>
         <Link href="/">My Dictionary</Link>
         <Link href="/">Profile</Link>
         <Link href="/">Login</Link>

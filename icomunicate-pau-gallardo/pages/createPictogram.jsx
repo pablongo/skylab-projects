@@ -5,7 +5,7 @@ export default function CreatePictogram() {
     <>
       <section>
         <img src="" alt="" />
-        <h2>Image tittle</h2>
+        <h2>Image title</h2>
         <div>
           <button type="button">Save changes</button>
           <button type="button">Delete pictogram</button>

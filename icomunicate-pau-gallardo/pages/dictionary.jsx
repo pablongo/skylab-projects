@@ -1,8 +1,10 @@
 import React from 'react';
+import Header from '../components/Header/Header';
 
 export default function dictionary() {
   return (
     <>
+      <Header />
       <section>
         <div>
           <h2>Componente</h2>

@@ -10,3 +10,14 @@ export default function Pictogram({ pictogram }) {
     </figure>
   );
 }
+
+Pictogram.defaultProps = {
+  pictogram: [],
+};
+
+Pictogram.propTypes = {
+  pictogram: {
+    img: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+  },
+};

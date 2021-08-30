@@ -1,7 +1,9 @@
 import React from 'react';
 import Header from '../components/Header/Header';
+// import Pictogram from '../components/Pictogram/Pictogram';
 
-export default function dictionary() {
+export default function dictionary(props) {
+  console.log(props);
   return (
     <>
       <Header />
@@ -25,4 +27,14 @@ export default function dictionary() {
       </label>
     </>
   );
+}
+
+export async function getStaticProps() {
+  let data = await fetch(
+    'http://localhost:3000/api/dictionaryHandler?dictionaryId=612d25f9e3e3cdc37a8f7ec5',
+  );
+  data = await data.json();
+  return {
+    props: data,
+  };
 }

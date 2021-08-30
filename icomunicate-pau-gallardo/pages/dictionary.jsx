@@ -24,14 +24,16 @@ export default function dictionary({ pictogramList }) {
           id="search-pictogram"
         />
       </label>
-      <Pictogram pictogram={pictogramList[0]} />
+      {pictogramList.map((pictogram) => (
+        <Pictogram pictogram={pictogram} />
+      ))}
     </>
   );
 }
 
 export async function getStaticProps() {
   let data = await fetch(
-    'http://localhost:3000/api/dictionaryHandler?dictionaryId=612d27dee3e3cdc37a8f7ecf',
+    'http://localhost:3000/api/dictionaryHandler?dictionaryId=612d2b50e3e3cdc37a8f7ef2',
   );
   data = await data.json();
   return {

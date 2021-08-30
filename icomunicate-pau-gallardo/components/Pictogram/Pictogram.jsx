@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Pictogram({ pictogram }) {
   const { img, text } = pictogram;

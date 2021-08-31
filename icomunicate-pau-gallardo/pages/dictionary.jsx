@@ -35,7 +35,7 @@ export default function dictionary({ pictogramList }) {
 // LOS CASOS A LA VEZ I GUARDARLOS EN UN OBJ SEGUN NOMBRE
 export async function getStaticProps() {
   let data = await fetch(
-    'http://localhost:3000/api/dictionaryHandler?dictionaryId=612d2b50e3e3cdc37a8f7ef2',
+    'http://localhost:3000/api/dictionaryHandler?dictionaryId=612e13a714cdf306e451bcb1',
   );
   data = await data.json();
   return {

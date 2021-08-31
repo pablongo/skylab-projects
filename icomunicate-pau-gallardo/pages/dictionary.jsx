@@ -31,6 +31,8 @@ export default function dictionary({ pictogramList }) {
   );
 }
 
+// REVISAR SI HACER STATIC GENERATION CON TODOS
+// LOS CASOS A LA VEZ I GUARDARLOS EN UN OBJ SEGUN NOMBRE
 export async function getStaticProps() {
   let data = await fetch(
     'http://localhost:3000/api/dictionaryHandler?dictionaryId=612d2b50e3e3cdc37a8f7ef2',

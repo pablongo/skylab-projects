@@ -8,10 +8,10 @@ export default function dictionary({ pictogramList }) {
       <Header />
       <section>
         <div>
-          <h2>Componente</h2>
-          <h2>Componente</h2>
-          <h2>Componente</h2>
-          <h2>Componente</h2>
+          <Pictogram />
+          <Pictogram />
+          <Pictogram />
+          <Pictogram />
         </div>
         <button type="button">
           Add new pictogram
@@ -35,7 +35,7 @@ export default function dictionary({ pictogramList }) {
 // LOS CASOS A LA VEZ I GUARDARLOS EN UN OBJ SEGUN NOMBRE
 export async function getStaticProps() {
   let data = await fetch(
-    'http://localhost:3000/api/dictionaryHandler?dictionaryId=612e13a714cdf306e451bcb1',
+    'http://localhost:3000/api/dictionaryHandler?dictionaryId=612e4f18816dbc1e93d5b321',
   );
   data = await data.json();
   return {

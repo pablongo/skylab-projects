@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className={styles.nav__container}>
       <h1 className={styles.nav__container__title}>iComunicate</h1>
-      <nav className={styles.nav__container__navbar}>
+      <nav className={styles.nav__container__navbar} data-testid="nav-bar">
         <Link href="/">
           <span className={styles.nav__container__navbar__button}>
             Home

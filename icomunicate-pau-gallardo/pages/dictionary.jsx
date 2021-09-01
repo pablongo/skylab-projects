@@ -7,10 +7,10 @@ export default function dictionary({ pictogramList }) {
     <>
       <section>
         <div>
-          <Pictogram />
-          <Pictogram />
-          <Pictogram />
-          <Pictogram />
+          <h1>Diccionario 1</h1>
+          <h1>Diccionario 2</h1>
+          <h1>Diccionario 3</h1>
+          <h1>Diccionario 4</h1>
         </div>
         <button type="button">
           Add new pictogram

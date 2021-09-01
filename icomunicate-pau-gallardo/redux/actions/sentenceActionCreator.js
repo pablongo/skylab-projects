@@ -1,9 +1,9 @@
 import actionTypes from './actionTypes';
 
-export function loadSentence() {
+export function loadSentence(pictogram) {
   return ({
     type: actionTypes.LOAD_SENTENCE,
-
+    pictogram,
   });
 }
 

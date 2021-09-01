@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 import { getAllDictionariesIds, getDictionaries, getDictionaryData } from '../../lib/controllers/dinctionaries/dictionaries';
 import Pictogram from '../../components/Pictogram/Pictogram';
 
 export default function PictoDictionary({ dictionaryData, dictionaries }) {
-  console.log(dictionaries);
   const { pictogramList } = dictionaryData;
   return (
     <>
       <h2>Pictogram dictionaries</h2>
       {dictionaries.map((dictionary) => (
-        <h4>{dictionary.tittle}</h4>
+        <Link href={`http://localhost:3000/dictionaries/${dictionary._id}`}>
+          <h4>{dictionary.tittle}</h4>
+        </Link>
       ))}
       <h2>Pictograms</h2>
       {pictogramList?.map((pictogram) => (
@@ -19,12 +21,15 @@ export default function PictoDictionary({ dictionaryData, dictionaries }) {
     </>
   );
 }
+
 PictoDictionary.defaultProps = {
   dictionaryData: [],
+  dictionaries: [],
 };
 
 PictoDictionary.propTypes = {
   dictionaryData: { pictogramList: PropTypes.array.isRequired },
+  dictionaries: PropTypes.arrayOf(PropTypes.object),
 };
 
 export async function getStaticPaths() {

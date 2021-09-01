@@ -2,6 +2,7 @@ import connectDB from '../../middlewares/mongodb';
 import {
   createNewDictionary, getOneDictionary, deleteDictionary, updateDictionary,
 } from '../../lib/controllers/dictionaryController';
+import { getAllDictionariesIds } from '../../lib/controllers/dinctionaries/dictionaries';
 
 const dictionaryHandler = async (req, res) => {
   switch (req.method) {
@@ -10,7 +11,8 @@ const dictionaryHandler = async (req, res) => {
       break;
 
     case 'GET':
-      await getOneDictionary(req, res);
+      // await getOneDictionary(req, res);
+      await getAllDictionariesIds(req, res);
       break;
 
     case 'DELETE':

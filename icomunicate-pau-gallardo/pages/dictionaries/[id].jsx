@@ -1,13 +1,14 @@
 import React from 'react';
+import { getAllDictionariesIds, getDictionaryData } from '../../lib/controllers/dinctionaries/dictionaries';
 
-export default function PictoDictionary() {
+export default function PictoDictionary({ dictionaryData }) {
   return (
     <h1>This is a PictoDictionary</h1>
   );
 }
 
 export async function getStaticPaths() {
-  const paths = getAllDictionariesIds();
+  const paths = await getAllDictionariesIds();
   return {
     paths,
     fallback: false,
@@ -15,5 +16,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  // Fetch necessary data for the blog post using params.id
+  let dictionaryData = await getDictionaryData(params.id);
+  dictionaryData = JSON.stringify(dictionaryData);
+  return {
+    props: {
+      dictionaryData: JSON.parse(dictionaryData),
+    },
+  };
 }

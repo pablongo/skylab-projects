@@ -1,19 +1,10 @@
-/* eslint-disable react/jsx-no-bind */
 import React from 'react';
-import { Provider, useDispatch } from 'react-redux';
 
-import Header from '../components/Header/Header';
 import Pictogram from '../components/Pictogram/Pictogram';
 
 export default function dictionary({ pictogramList }) {
-  const dispatch = useDispatch();
-  function handle(event) {
-    console.log(event.target);
-    console.log(event.target.type);
-  }
   return (
     <>
-      <Header />
       <section>
         <div>
           <Pictogram />
@@ -33,12 +24,13 @@ export default function dictionary({ pictogramList }) {
         />
       </label>
       {pictogramList?.map((pictogram) => (
-        <Pictogram pictogram={pictogram} handle={handle} />
+        <Pictogram pictogram={pictogram} />
       ))}
     </>
   );
 }
 
+// Esto esta mal, hay que conectarse directamente a la base de datos
 export async function getStaticProps() {
   let data = await fetch(
     'http://localhost:3000/api/dictionaryHandler?dictionaryId=612e809ee4c8d904cb4b2723',

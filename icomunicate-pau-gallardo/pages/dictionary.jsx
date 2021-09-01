@@ -1,8 +1,13 @@
+/* eslint-disable react/jsx-no-bind */
 import React from 'react';
 import Header from '../components/Header/Header';
 import Pictogram from '../components/Pictogram/Pictogram';
 
 export default function dictionary({ pictogramList }) {
+  function handle(event) {
+    console.log(event.target);
+    console.log(event.target.type);
+  }
   return (
     <>
       <Header />
@@ -24,18 +29,16 @@ export default function dictionary({ pictogramList }) {
           id="search-pictogram"
         />
       </label>
-      {pictogramList.map((pictogram) => (
-        <Pictogram pictogram={pictogram} />
+      {pictogramList?.map((pictogram) => (
+        <Pictogram pictogram={pictogram} handle={handle} />
       ))}
     </>
   );
 }
 
-// REVISAR SI HACER STATIC GENERATION CON TODOS
-// LOS CASOS A LA VEZ I GUARDARLOS EN UN OBJ SEGUN NOMBRE
 export async function getStaticProps() {
   let data = await fetch(
-    'http://localhost:3000/api/dictionaryHandler?dictionaryId=612e4f18816dbc1e93d5b321',
+    'http://localhost:3000/api/dictionaryHandler?dictionaryId=612e809ee4c8d904cb4b2723',
   );
   data = await data.json();
   return {

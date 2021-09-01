@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Pictogram({ pictogram }) {
+export default function Pictogram({ pictogram, handle }) {
   const { img, text } = pictogram;
 
   return (
-    <figure>
+    <button type="button" onClick={handle}>
       <img src={`${img}`} alt="" />
       <h2>{text}</h2>
-    </figure>
+    </button>
   );
 }
 

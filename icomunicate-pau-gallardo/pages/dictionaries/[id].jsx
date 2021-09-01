@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 import { getAllDictionariesIds, getDictionaries, getDictionaryData } from '../../lib/controllers/dinctionaries/dictionaries';
 import Pictogram from '../../components/Pictogram/Pictogram';
 
-export default function PictoDictionary({ dictionaryData }) {
+export default function PictoDictionary({ dictionaryData, dictionaries }) {
+  console.log(dictionaries);
   const { pictogramList } = dictionaryData;
   return (
     <>
       <h2>Pictogram dictionaries</h2>
-
+      {dictionaries.map((dictionary) => (
+        <h4>{dictionary.tittle}</h4>
+      ))}
+      <h2>Pictograms</h2>
       {pictogramList?.map((pictogram) => (
         <Pictogram pictogram={pictogram} />
       ))}

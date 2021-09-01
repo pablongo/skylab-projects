@@ -10,9 +10,10 @@ export async function getAllDictionariesIds() {
     },
   );
   const foundDictionaries = await Dictionary.find({});
-
   return foundDictionaries.map((dictionary) => ({
-    params: { id: `${dictionary._id}` },
+    params: {
+      id: `${dictionary._id}`,
+    },
   }));
 }
 
@@ -20,4 +21,9 @@ export async function getDictionaryData(dictionaryId) {
   const foundDictionary = await Dictionary.findById(dictionaryId)
     .populate('pictogramList');
   return foundDictionary;
+}
+
+export async function getDictionaries() {
+  const foundDictionaries = await Dictionary.find({});
+  return foundDictionaries;
 }

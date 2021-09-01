@@ -17,6 +17,7 @@ export async function getAllDictionariesIds() {
 }
 
 export async function getDictionaryData(dictionaryId) {
-  const foundDictionary = await Dictionary.findById(dictionaryId);
+  const foundDictionary = await Dictionary.findById(dictionaryId)
+    .populate('pictogramList');
   return foundDictionary;
 }

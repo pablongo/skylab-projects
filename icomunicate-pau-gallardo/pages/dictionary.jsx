@@ -1,9 +1,12 @@
 /* eslint-disable react/jsx-no-bind */
 import React from 'react';
+import { Provider, useDispatch } from 'react-redux';
+
 import Header from '../components/Header/Header';
 import Pictogram from '../components/Pictogram/Pictogram';
 
 export default function dictionary({ pictogramList }) {
+  const dispatch = useDispatch();
   function handle(event) {
     console.log(event.target);
     console.log(event.target.type);

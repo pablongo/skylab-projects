@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-underscore-dangle */
 import mongoose from 'mongoose';
 import Dictionary from '../../../models/dictionaryModel';
+import Pictogram from '../../../models/pictogramModel';
 
 export async function getAllDictionariesIds() {
   await mongoose.connect(
@@ -19,8 +21,15 @@ export async function getAllDictionariesIds() {
 }
 
 export async function getDictionaryData(dictionaryId) {
-  const foundDictionary = await Dictionary.findById(dictionaryId)
-    .populate('pictogramList');
+  await mongoose.connect(
+    process.env.mongodburl,
+    {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+    },
+  );
+
+  const foundDictionary = await Dictionary.findById(dictionaryId).populate('pictogramList');
   return foundDictionary;
 }
 

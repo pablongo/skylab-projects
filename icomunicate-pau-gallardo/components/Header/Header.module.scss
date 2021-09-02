@@ -1,0 +1,21 @@
+.nav__container{
+    display: flex;
+    justify-content: space-between;
+    background-color: #27C0EF;
+
+    &__title{
+        color: white;
+        margin-left: 40px;
+    }
+
+    &__navbar{
+        color: white;
+        align-self: center;
+        margin-right: 40px;
+
+        &__button{
+           margin: 10px;
+           cursor: pointer;
+        }
+    }
+}

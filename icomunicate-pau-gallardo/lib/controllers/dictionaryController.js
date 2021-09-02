@@ -14,7 +14,8 @@ export async function createNewDictionary(req, res) {
 export async function getOneDictionary(req, res) {
   const { dictionaryId } = req.query;
   try {
-    const foundDictionary = await Dictionary.findById(dictionaryId);
+    const foundDictionary = await Dictionary.findById(dictionaryId)
+      .populate('pictogramList');
     res.send(foundDictionary);
     res.status(200);
   } catch (error) {

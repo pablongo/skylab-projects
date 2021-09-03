@@ -15,7 +15,7 @@ export default function Pictogram({ pictogram }) {
       onClick={() => speak({ text: `${text}` })}
     >
       <img className={styles.button__container__img} src={`${img}`} alt="" />
-      <h2>{text}</h2>
+      <h2 className={styles.button__container__title}>{text}</h2>
     </button>
   );
 }

@@ -15,12 +15,12 @@ export default function Header() {
         </Link>
         <Link href="/dictionaries/612e809ee4c8d904cb4b2723">
           <span className={styles.nav__container__navbar__button}>
-            Global Dictionary
+            Dictionaries
           </span>
         </Link>
         <Link href="/">
           <span className={styles.nav__container__navbar__button}>
-            My Dictionary
+            My Dictionaries
           </span>
         </Link>
         <Link href="/profile">

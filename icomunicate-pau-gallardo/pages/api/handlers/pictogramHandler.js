@@ -4,7 +4,6 @@ import { createPictogram } from '../../../lib/controllers/pictogramController';
 async function pictogramHandler(req, res) {
   switch (req.method) {
     case 'POST':
-      console.log(req.body);
       await createPictogram(req, res);
       break;
 

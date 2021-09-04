@@ -11,7 +11,6 @@ export default function CreatePictogram() {
   }
 
   async function submitHandler(data) {
-    console.log('He entrado');
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 

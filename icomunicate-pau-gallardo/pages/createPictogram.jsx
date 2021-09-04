@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import styles from './createPictogram.module.scss';
 
 export default function CreatePictogram() {
   const [formData, setFormData] = useState();
+  const placeholder = 'https://via.placeholder.com/150';
 
   function handleFormData(event) {
     setFormData({
@@ -29,12 +31,14 @@ export default function CreatePictogram() {
     fetch('http://localhost:3000/api/handlers/pictogramHandler', requestOptions);
   }
   return (
-    <>
-      <h1>Create pictogram page</h1>
-      <form>
+    <main className={styles.create__page}>
+      <section className={styles.create__page__top}>
+        <img className={styles.create__page__top__img} src={placeholder} alt="" />
         <button type="submit" onClick={() => submitHandler(formData)}>
           Save Changes
         </button>
+      </section>
+      <form>
         <label htmlFor="image">
           Image URL
           <input type="text" id="image" onChange={handleFormData} />
@@ -44,6 +48,6 @@ export default function CreatePictogram() {
           <input type="text" id="title" onChange={handleFormData} />
         </label>
       </form>
-    </>
+    </main>
   );
 }

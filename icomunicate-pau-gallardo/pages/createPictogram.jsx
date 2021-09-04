@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function CreatePictogram() {
-  async function submitHandler() {
+  const [formData, setFormData] = useState();
+
+  function handleFormData(event) {
+    setFormData({
+      ...formData,
+      [event.target.id]: event.target.value,
+    });
+  }
+
+  async function submitHandler(data) {
+    console.log('He entrado');
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 
     const raw = JSON.stringify({
-      title: 'Comer',
-      image: 'https://ibb.co/8XKQnmG',
+      title: data.title,
+      image: data.image,
     });
 
     const requestOptions = {
@@ -23,16 +33,16 @@ export default function CreatePictogram() {
     <>
       <h1>Create pictogram page</h1>
       <form>
-        <button type="submit" onClick={submitHandler}>
+        <button type="submit" onClick={() => submitHandler(formData)}>
           Save Changes
         </button>
         <label htmlFor="image">
           Image URL
-          <input type="text" id="image" />
+          <input type="text" id="image" onChange={handleFormData} />
         </label>
         <label htmlFor="title">
           Pictogram title
-          <input type="text" id="title" />
+          <input type="text" id="title" onChange={handleFormData} />
         </label>
       </form>
     </>

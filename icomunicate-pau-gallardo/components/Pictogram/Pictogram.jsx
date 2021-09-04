@@ -5,7 +5,7 @@ import { useSpeechSynthesis } from 'react-speech-kit';
 import styles from './Pictogram.module.scss';
 
 export default function Pictogram({ pictogram }) {
-  const { img, text } = pictogram;
+  const { image, text } = pictogram;
   const { speak } = useSpeechSynthesis();
 
   return (
@@ -14,7 +14,7 @@ export default function Pictogram({ pictogram }) {
       type="button"
       onClick={() => speak({ text: `${text}` })}
     >
-      <img className={styles.button__container__img} src={`${img}`} alt="" />
+      <img className={styles.button__container__img} src={`${image}`} alt="" />
       <h2 className={styles.button__container__title}>{text}</h2>
     </button>
   );

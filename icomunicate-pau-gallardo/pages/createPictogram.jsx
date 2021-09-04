@@ -2,14 +2,22 @@ import React from 'react';
 
 export default function CreatePictogram() {
   async function submitHandler() {
-    const data = {
-      title: 'asdas',
-      image: 'asdasdas',
-    };
-    await fetch('http://localhost:3000/api/handlers/pictogramHandler', {
-      method: 'POST',
-      body: JSON.stringify(data),
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+
+    const raw = JSON.stringify({
+      title: 'Comer',
+      image: 'https://ibb.co/8XKQnmG',
     });
+
+    const requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow',
+    };
+
+    fetch('http://localhost:3000/api/handlers/pictogramHandler', requestOptions);
   }
   return (
     <>

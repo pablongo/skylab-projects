@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const pictogram = new Schema({
-  text: {
+  title: {
     type: String,
     required: true,
   },

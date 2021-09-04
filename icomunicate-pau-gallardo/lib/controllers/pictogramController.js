@@ -4,6 +4,7 @@ import handleError from '../../utils/handleError';
 export async function createPictogram(req, res) {
   try {
     const newPictogram = await Pictogram.create(req.body);
+    console.log(newPictogram);
     res.send(newPictogram);
     res.status(200);
   } catch (error) {

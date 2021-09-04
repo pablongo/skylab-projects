@@ -11,11 +11,6 @@ const pictogram = new Schema({
     type: String,
     required: true,
   },
-  type: {
-    type: String,
-    required: true,
-  },
-  metadata: [String],
 });
 
 mongoose.models = {};

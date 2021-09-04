@@ -34,17 +34,17 @@ export default function CreatePictogram() {
     <main className={styles.create__page}>
       <section className={styles.create__page__top}>
         <img className={styles.create__page__top__img} src={placeholder} alt="" />
-        <button type="submit" onClick={() => submitHandler(formData)}>
+        <button className={styles.create__page__top__btn} type="submit" onClick={() => submitHandler(formData)}>
           Save Changes
         </button>
       </section>
-      <form>
+      <form className={styles.create__page__form}>
         <label htmlFor="image">
-          Image URL
+          <span>Image URL</span>
           <input type="text" id="image" onChange={handleFormData} />
         </label>
         <label htmlFor="title">
-          Pictogram title
+          <span>Pictogram title</span>
           <input type="text" id="title" onChange={handleFormData} />
         </label>
       </form>

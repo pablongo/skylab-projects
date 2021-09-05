@@ -20,9 +20,9 @@ export default function Header() {
             Dictionaries
           </span>
         </Link>
-        <Link href="/">
+        <Link href="/myPictograms">
           <span className={styles.nav__container__navbar__button}>
-            My Dictionaries
+            My Pictograms
           </span>
         </Link>
         <Link href="/profile">

@@ -10,8 +10,6 @@ export async function createPictogramToUser(req, res) {
   try {
     const newPictogram = await Pictogram.create(pictogramData);
     const newUserPictogram = await User.findOne({ email: req.body.email });
-
-    console.log(newUserPictogram);
     await newUserPictogram.userPictogramList.push(newPictogram._id);
     await newUserPictogram.save();
     res.send(newUserPictogram);

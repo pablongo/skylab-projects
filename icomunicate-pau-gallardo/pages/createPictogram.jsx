@@ -21,6 +21,7 @@ export default function CreatePictogram() {
     const raw = JSON.stringify({
       title: data.title,
       image: data.image,
+      email: session.user.email,
     });
 
     const requestOptions = {

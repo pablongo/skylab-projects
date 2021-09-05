@@ -4,11 +4,16 @@ import { useSession, getSession } from 'next-auth/client';
 
 import User from '../models/userModel';
 
+import Pictogram from '../components/Pictogram/Pictogram';
+
 export default function myPictograms({ userPictogramList }) {
   const [session] = useSession();
   return (
     <>
       <h1>My Pictograms</h1>
+      {userPictogramList?.map((pictogram) => (
+        <Pictogram pictogram={pictogram} />
+      ))}
       <Link href="/createPictogram">Create new pictogram</Link>
     </>
   );

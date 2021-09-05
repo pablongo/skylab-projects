@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 import { useSession, signIn, signOut } from 'next-auth/client';
-import styles from './Header.module.scss';
+import styles from '../styles/Header.module.scss';
 
 export default function Header() {
   const [session] = useSession();

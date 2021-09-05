@@ -4,7 +4,7 @@ import { useSession, getSession } from 'next-auth/client';
 
 import User from '../models/userModel';
 
-import Pictogram from '../components/Pictogram/Pictogram';
+import Pictogram from '../components/Pictogram';
 
 export default function myPictograms({ userPictogramList }) {
   const [session] = useSession();

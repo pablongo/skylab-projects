@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Link from 'next/link';
 import { getAllDictionariesIds, getDictionaries, getDictionaryData } from '../../lib/controllers/dinctionaries/dictionaries';
-import Pictogram from '../../components/Pictogram/Pictogram';
+import Pictogram from '../../components/Pictogram';
 
 export default function PictoDictionary({ dictionaryData, dictionaries }) {
   const { pictogramList } = dictionaryData;

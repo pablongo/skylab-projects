@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSpeechSynthesis } from 'react-speech-kit';
 
-import styles from './Pictogram.module.scss';
+import styles from '../styles/Pictogram.module.scss';
 
 export default function Pictogram({ pictogram }) {
   const { image, title } = pictogram;

@@ -11,10 +11,6 @@ const user = new Schema({
     type: String,
     required: true,
   },
-  password: {
-    type: String,
-    required: true,
-  },
   userPictogramList: [{ type: Schema.Types.ObjectId, ref: 'Pictogram' }],
 });
 

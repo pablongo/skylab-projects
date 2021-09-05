@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { useSession } from 'next-auth/client';
+import { useSession, signIn, signOut } from 'next-auth/client';
 import styles from './Header.module.scss';
 
 export default function Header() {
@@ -30,11 +30,26 @@ export default function Header() {
             Profile
           </span>
         </Link>
-        <Link href="/">
-          {session
-            ? <span className={styles.nav__container__navbar__button}>Logout</span>
-            : <span className={styles.nav__container__navbar__button}>Login</span>}
-        </Link>
+        {session
+          ? (
+            <button
+              type="button"
+              className={styles.nav__container__navbar__button}
+              onClick={signOut}
+            >
+              Logout
+            </button>
+          )
+          : (
+            <button
+              type="button"
+              className={styles.nav__container__navbar__button}
+              onClick={signIn}
+            >
+              Login
+            </button>
+          )}
+
       </nav>
     </header>
   );

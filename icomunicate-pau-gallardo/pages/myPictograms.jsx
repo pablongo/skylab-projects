@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Link from 'next/link';
 import { useSession, getSession } from 'next-auth/client';
 
 import User from '../models/userModel';
@@ -7,8 +7,10 @@ import User from '../models/userModel';
 export default function myPictograms({ userPictogramList }) {
   const [session] = useSession();
   return (
-    <h1>My Pictograms</h1>
-
+    <>
+      <h1>My Pictograms</h1>
+      <Link href="/createPictogram">Create new pictogram</Link>
+    </>
   );
 }
 

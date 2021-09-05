@@ -1,0 +1,12 @@
+.button__container{
+        background: transparent;
+        border: 0px solid transparent;
+        border-radius: 5px 5px 5px 5px;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        margin: 12px;
+        cursor: pointer;
+    &__img{
+        height: 100px;
+        width: auto;
+    }
+}

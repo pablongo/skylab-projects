@@ -1,0 +1,42 @@
+.create__page{
+    display: flex;
+    flex-direction: column;
+
+    &__top{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #27C0EF;
+        height: 39vh;
+        width: 100%;
+
+        &__img{
+            width: 150px;
+            height: 150px;
+            align-self: center;
+            border-radius: 10px 10px 10px 10px;
+            margin: 20px;
+        }
+
+        &__btn{
+            background: white;
+            width: 250px;
+            height: 70px;
+            align-self: center;
+            border: 0px solid transparent;
+            border-radius: 10px 10px 10px 10px;
+            cursor: pointer;
+            color: #27C0EF;
+            font-size: 30px;
+            margin-top: 20px;
+        }
+    
+    }
+    &__form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+    }
+    
+}

@@ -3,19 +3,14 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const pictogram = new Schema({
-  text: {
+  title: {
     type: String,
     required: true,
   },
-  img: {
+  image: {
     type: String,
     required: true,
   },
-  type: {
-    type: String,
-    required: true,
-  },
-  metadata: [String],
 });
 
 mongoose.models = {};

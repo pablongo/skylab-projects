@@ -3,7 +3,11 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const dictionary = new Schema({
-  tittle: {
+  title: {
+    type: String,
+    required: true,
+  },
+  image: {
     type: String,
     required: true,
   },

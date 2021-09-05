@@ -1,34 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
+import styles from './createPictogram.module.scss';
 
 export default function CreatePictogram() {
+  const [formData, setFormData] = useState();
+  const placeholder = 'https://via.placeholder.com/150';
+
+  function handleFormData(event) {
+    setFormData({
+      ...formData,
+      [event.target.id]: event.target.value,
+    });
+  }
+
+  async function submitHandler(data) {
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+
+    const raw = JSON.stringify({
+      title: data.title,
+      image: data.image,
+    });
+
+    const requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow',
+    };
+
+    fetch('http://localhost:3000/api/handlers/pictogramHandler', requestOptions);
+  }
   return (
-    <>
-      <section>
-        <img src="" alt="" />
-        <h2>Image title</h2>
-        <div>
-          <button type="button">Save changes</button>
-          <button type="button">Delete pictogram</button>
-        </div>
+    <main className={styles.create__page}>
+      <section className={styles.create__page__top}>
+        <img className={styles.create__page__top__img} src={placeholder} alt="" />
+        <button className={styles.create__page__top__btn} type="submit" onClick={() => submitHandler(formData)}>
+          Save Changes
+        </button>
       </section>
-      <section>
-        <label htmlFor="browse-picture">
-          Browse Picture
-          <input type="text" id="browse-picture" />
+      <form className={styles.create__page__form}>
+        <label htmlFor="image">
+          <span>Image URL</span>
+          <input type="text" id="image" onChange={handleFormData} />
         </label>
-        <label htmlFor="text">
-          Text
-          <input type="text" id="text" />
+        <label htmlFor="title">
+          <span>Pictogram title</span>
+          <input type="text" id="title" onChange={handleFormData} />
         </label>
-        <label htmlFor="gramatic-type">
-          Gramar type
-          <input type="text" id="gramatic-type" />
-        </label>
-        <label htmlFor="metadata">
-          Metadata
-          <input type="text" id="metadata" />
-        </label>
-      </section>
-    </>
+      </form>
+    </main>
   );
 }

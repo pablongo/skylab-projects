@@ -1,9 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 
+import { useSession } from 'next-auth/client';
 import styles from './Header.module.scss';
 
 export default function Header() {
+  const [session, loading] = useSession();
   return (
     <header className={styles.nav__container}>
       <h1 className={styles.nav__container__title}>iComunicate</h1>
@@ -29,9 +31,9 @@ export default function Header() {
           </span>
         </Link>
         <Link href="/">
-          <span className={styles.nav__container__navbar__button}>
-            Login
-          </span>
+          {session
+            ? <span className={styles.nav__container__navbar__button}>Logout</span>
+            : <span className={styles.nav__container__navbar__button}>Login</span>}
         </Link>
       </nav>
     </header>

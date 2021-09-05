@@ -7,6 +7,7 @@ import User from '../models/userModel';
 import Pictogram from '../components/Pictogram/Pictogram';
 
 export default function myPictograms({ userPictogramList }) {
+  console.log(userPictogramList);
   const [session] = useSession();
   return (
     <>
@@ -24,7 +25,7 @@ export async function getServerSideProps(context) {
   let foundUser;
   let userPictogramList;
   if (session) {
-    foundUser = await User.findOne({ email: session.user.email });
+    foundUser = await User.findOne({ email: session.user.email }).populate('userPictogramList');
     if (!foundUser) {
       const newUser = {
         name: session.user.name,

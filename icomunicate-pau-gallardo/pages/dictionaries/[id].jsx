@@ -8,6 +8,7 @@ import Pictogram from '../../components/Pictogram/Pictogram';
 
 export default function PictoDictionary({ dictionaryData, dictionaries }) {
   const { pictogramList } = dictionaryData;
+
   return (
     <>
       <h2>Pictogram dictionaries</h2>

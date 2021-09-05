@@ -7,7 +7,6 @@ import User from '../models/userModel';
 import Pictogram from '../components/Pictogram/Pictogram';
 
 export default function myPictograms({ userPictogramList }) {
-  console.log(userPictogramList);
   const [session] = useSession();
   return (
     <>

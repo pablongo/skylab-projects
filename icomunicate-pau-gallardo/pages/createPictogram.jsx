@@ -1,7 +1,9 @@
+import { useSession } from 'next-auth/client';
 import React, { useState } from 'react';
 import styles from './createPictogram.module.scss';
 
 export default function CreatePictogram() {
+  const [session] = useSession();
   const [formData, setFormData] = useState();
   const placeholder = 'https://via.placeholder.com/150';
 

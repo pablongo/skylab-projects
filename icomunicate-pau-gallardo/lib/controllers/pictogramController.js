@@ -21,8 +21,8 @@ export async function createPictogramToUser(req, res) {
 
 export async function createPictogram(req, res) {
   try {
-    const newUserPictogram = await User.findOne(req.body);
-    res.send(newUserPictogram);
+    const newPictogram = await Pictogram.create(req.body);
+    res.send(newPictogram);
     res.status(200);
   } catch (error) {
     handleError(error, res);

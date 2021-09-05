@@ -1,7 +1,7 @@
 import connectDB from '../../../middlewares/mongodb';
 import { createNewUser } from '../../../lib/controllers/userController';
 
-async function pictogramHandler(req, res) {
+async function userHandler(req, res) {
   switch (req.method) {
     case 'POST':
       await createNewUser(req, res);
@@ -12,4 +12,4 @@ async function pictogramHandler(req, res) {
   }
 }
 
-export default connectDB(pictogramHandler);
+export default connectDB(userHandler);

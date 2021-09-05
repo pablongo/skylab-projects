@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { useSession, getSession } from 'next-auth/client';
-import { getDictionaries } from '../lib/controllers/dinctionaries/dictionaries';
 
-export default function myPictograms() {
+import User from '../models/userModel';
+
+export default function myPictograms({ userPictogramList }) {
   const [session] = useSession();
   return (
     <h1>My Pictograms</h1>
@@ -13,13 +14,23 @@ export default function myPictograms() {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
+  let foundUser;
   let userPictogramList;
   if (session) {
-    userPictogramList = await getDictionaries();
-    userPictogramList = JSON.stringify(userPictogramList);
+    foundUser = await User.findOne({ email: session.user.email });
+    if (!foundUser) {
+      const newUser = {
+        name: session.user.name,
+        email: session.user.email,
+        userPictogramList: [],
+      };
+      foundUser = await User.create(newUser);
+    }
+    userPictogramList = foundUser.userPictogramList;
   } else {
-    userPictogramList = JSON.stringify([]);
+    userPictogramList = [];
   }
+  userPictogramList = JSON.stringify(userPictogramList);
   return {
     props: { userPictogramList: JSON.parse(userPictogramList) },
   };

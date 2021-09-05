@@ -5,7 +5,8 @@ import { useSession, signIn, signOut } from 'next-auth/client';
 import styles from './Header.module.scss';
 
 export default function Header() {
-  const [session, loading] = useSession();
+  const [session] = useSession();
+
   return (
     <header className={styles.nav__container}>
       <h1 className={styles.nav__container__title}>iComunicate</h1>

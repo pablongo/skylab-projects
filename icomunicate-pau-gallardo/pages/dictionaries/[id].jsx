@@ -13,15 +13,16 @@ export default function PictoDictionary({ dictionaryData, dictionaries }) {
   return (
     <>
       <section className={styles.dictionaries__container}>
-        <h2>Pictogram dictionaries</h2>
-        {dictionaries.map((dictionary) => (
-          <Link href={`http://localhost:3000/dictionaries/${dictionary._id}`}>
-            <h4>{dictionary.title}</h4>
-          </Link>
-        ))}
+        <div>
+          {dictionaries.map((dictionary) => (
+            <Link href={`http://localhost:3000/dictionaries/${dictionary._id}`}>
+              <Pictogram pictogram={dictionary} />
+            </Link>
+          ))}
+        </div>
+        <h2 className={styles.dictionaries__container__title}>Pictogram dictionaries</h2>
       </section>
       <section>
-        <h2>Pictograms</h2>
         {pictogramList?.map((pictogram) => (
           <Pictogram pictogram={pictogram} />
         ))}

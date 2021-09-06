@@ -1,4 +1,16 @@
 .dictionaries__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #27C0EF;
     height: 40vh;
+
+    &__title{
+        color:  #27C0EF;
+        margin:20px;
+        padding: 17px;
+        background-color: white;
+        border-radius: 20px 20px 20px 20px;
+    }
 }

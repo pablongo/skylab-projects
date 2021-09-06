@@ -31,7 +31,7 @@ export default function CreatePictogram() {
       redirect: 'follow',
     };
 
-    fetch('http://localhost:3000/api/handlers/pictogramHandler', requestOptions);
+    await fetch('http://localhost:3000/api/handlers/pictogramHandler', requestOptions);
   }
   return (
     <section className={styles.create__page}>

@@ -1,14 +1,14 @@
 import React from 'react';
-import Link from 'next/link';
 import { useSession, getSession } from 'next-auth/client';
+import { useRouter } from 'next/router';
 
 import User from '../models/userModel';
-
 import Pictogram from '../components/Pictogram';
 import CreatePictogram from '../components/createPictogram';
 
 export default function myPictograms({ userPictogramList }) {
   const [session] = useSession();
+
   return (
     <>
       {session && <CreatePictogram />}

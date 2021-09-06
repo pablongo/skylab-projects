@@ -38,7 +38,7 @@ export default function Header() {
               className={styles.nav__container__navbar__button}
               onClick={signOut}
             >
-              Logout
+              <span>Logout</span>
             </button>
           )
           : (
@@ -47,7 +47,7 @@ export default function Header() {
               className={styles.nav__container__navbar__button}
               onClick={signIn}
             >
-              Login
+              <span>Login</span>
             </button>
           )}
 

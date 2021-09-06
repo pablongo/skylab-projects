@@ -16,7 +16,7 @@ export default function Header() {
             Home
           </span>
         </Link>
-        <Link href="/dictionaries/612e809ee4c8d904cb4b2723">
+        <Link href="/dictionaries/61350f73cb53938c34ec9d4c">
           <span className={styles.nav__container__navbar__button}>
             Dictionaries
           </span>

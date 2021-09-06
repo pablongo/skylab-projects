@@ -14,7 +14,7 @@ export default function PictoDictionary({ dictionaryData, dictionaries }) {
       <h2>Pictogram dictionaries</h2>
       {dictionaries.map((dictionary) => (
         <Link href={`http://localhost:3000/dictionaries/${dictionary._id}`}>
-          <h4>{dictionary.tittle}</h4>
+          <h4>{dictionary.title}</h4>
         </Link>
       ))}
       <h2>Pictograms</h2>

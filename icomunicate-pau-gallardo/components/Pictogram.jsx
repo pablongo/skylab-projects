@@ -7,7 +7,6 @@ import styles from '../styles/Pictogram.module.scss';
 export default function Pictogram({ pictogram }) {
   const { image, title } = pictogram;
   const { speak } = useSpeechSynthesis();
-
   return (
     <button
       className={styles.button__container}

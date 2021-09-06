@@ -1,5 +1,5 @@
 import connectDB from '../../../middlewares/mongodb';
-import createNewDictionary from '../../../lib/controllers/dictionaryController';
+import { createNewDictionary } from '../../../lib/controllers/dictionaryController';
 
 async function dictionaryHandler(req, res) {
   switch (req.method) {

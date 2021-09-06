@@ -34,23 +34,21 @@ export default function CreatePictogram() {
     fetch('http://localhost:3000/api/handlers/pictogramHandler', requestOptions);
   }
   return (
-    <main className={styles.create__page}>
-      <section className={styles.create__page__top}>
-        <img className={styles.create__page__top__img} src={placeholder} alt="" />
-        <button className={styles.create__page__top__btn} type="submit" onClick={() => submitHandler(formData)}>
-          Save Changes
-        </button>
-      </section>
+    <section className={styles.create__page}>
+      <img className={styles.create__page__img} src={placeholder} alt="" />
+      <button className={styles.create__page__btn} type="submit" onClick={() => submitHandler(formData)}>
+        Save Changes
+      </button>
       <form className={styles.create__page__form}>
-        <label htmlFor="image">
-          <span>Image URL</span>
-          <input type="text" id="image" onChange={handleFormData} />
+        <label className={styles.create__page__form__label} htmlFor="image">
+          <span className={styles.create__page__form__label__text}>Image URL</span>
+          <input className={styles.create__page__form__label__input} type="text" id="image" onChange={handleFormData} />
         </label>
         <label htmlFor="title">
-          <span>Pictogram title</span>
-          <input type="text" id="title" onChange={handleFormData} />
+          <span className={styles.create__page__form__label__text}>Pictogram title</span>
+          <input className={styles.create__page__form__label__input} type="text" id="title" onChange={handleFormData} />
         </label>
       </form>
-    </main>
+    </section>
   );
 }

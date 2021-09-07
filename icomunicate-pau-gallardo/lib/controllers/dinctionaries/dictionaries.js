@@ -34,6 +34,13 @@ export async function getDictionaryData(dictionaryId) {
 }
 
 export async function getDictionaries() {
+  await mongoose.connect(
+    process.env.mongodburl,
+    {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+    },
+  );
   const foundDictionaries = await Dictionary.find({});
   return foundDictionaries;
 }

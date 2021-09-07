@@ -4,22 +4,29 @@ import PropTypes from 'prop-types';
 
 import Link from 'next/link';
 import { getAllDictionariesIds, getDictionaries, getDictionaryData } from '../../lib/controllers/dinctionaries/dictionaries';
-import Pictogram from '../../components/Pictogram/Pictogram';
+import Pictogram from '../../components/Pictogram';
+import styles from '../../styles/[id].module.scss';
 
 export default function PictoDictionary({ dictionaryData, dictionaries }) {
   const { pictogramList } = dictionaryData;
+
   return (
     <>
-      <h2>Pictogram dictionaries</h2>
-      {dictionaries.map((dictionary) => (
-        <Link href={`http://localhost:3000/dictionaries/${dictionary._id}`}>
-          <h4>{dictionary.tittle}</h4>
-        </Link>
-      ))}
-      <h2>Pictograms</h2>
-      {pictogramList?.map((pictogram) => (
-        <Pictogram pictogram={pictogram} />
-      ))}
+      <section className={styles.dictionaries__container}>
+        <div>
+          {dictionaries.map((dictionary) => (
+            <Link href={`http://localhost:3000/dictionaries/${dictionary._id}`}>
+              <Pictogram pictogram={dictionary} />
+            </Link>
+          ))}
+        </div>
+        <h2 className={styles.dictionaries__container__title}>Pictogram dictionaries</h2>
+      </section>
+      <section>
+        {pictogramList?.map((pictogram) => (
+          <Pictogram pictogram={pictogram} />
+        ))}
+      </section>
     </>
   );
 }

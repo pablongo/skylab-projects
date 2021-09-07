@@ -2,8 +2,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Provider } from 'next-auth/client';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 import '../styles/globals.css';
 

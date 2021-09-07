@@ -1,9 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 
-import styles from './Header.module.scss';
+import { useSession, signIn, signOut } from 'next-auth/client';
+import styles from '../styles/Header.module.scss';
 
 export default function Header() {
+  const [session] = useSession();
+
   return (
     <header className={styles.nav__container}>
       <h1 className={styles.nav__container__title}>iComunicate</h1>
@@ -13,14 +16,14 @@ export default function Header() {
             Home
           </span>
         </Link>
-        <Link href="/dictionaries/612e809ee4c8d904cb4b2723">
+        <Link href="/dictionaries/61350f73cb53938c34ec9d4c">
           <span className={styles.nav__container__navbar__button}>
             Dictionaries
           </span>
         </Link>
-        <Link href="/">
+        <Link href="/myPictograms">
           <span className={styles.nav__container__navbar__button}>
-            My Dictionaries
+            My Pictograms
           </span>
         </Link>
         <Link href="/profile">
@@ -28,11 +31,26 @@ export default function Header() {
             Profile
           </span>
         </Link>
-        <Link href="/">
-          <span className={styles.nav__container__navbar__button}>
-            Login
-          </span>
-        </Link>
+        {session
+          ? (
+            <button
+              type="button"
+              className={styles.nav__container__navbar__button}
+              onClick={signOut}
+            >
+              <span>Logout</span>
+            </button>
+          )
+          : (
+            <button
+              type="button"
+              className={styles.nav__container__navbar__button}
+              onClick={signIn}
+            >
+              <span>Login</span>
+            </button>
+          )}
+
       </nav>
     </header>
   );

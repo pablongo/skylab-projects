@@ -1,10 +1,10 @@
 import connectDB from '../../../middlewares/mongodb';
-import { createPictogramToUser } from '../../../lib/controllers/pictogramController';
+import { createPictogram } from '../../../lib/controllers/pictogramController';
 
 async function pictogramHandler(req, res) {
   switch (req.method) {
     case 'POST':
-      await createPictogramToUser(req, res);
+      await createPictogram(req, res);
       break;
 
     default:

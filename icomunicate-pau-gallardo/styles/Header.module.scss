@@ -1,0 +1,28 @@
+.nav__container{
+    display: flex;
+    justify-content: space-between;
+    background-color: #27C0EF;
+    
+    &__title{
+        color: white;
+        margin-left: 40px;
+    }
+    
+    &__navbar{
+        color: white;
+        align-self: center;
+        margin-right: 40px;
+        
+        &__button{
+            font-size: 15px;
+            color: white;
+            margin: 10px;
+            cursor: pointer;
+            background: transparent;
+            box-shadow: 0px 0px 0px transparent;
+            border: 0px solid transparent;
+            text-shadow: 0px 0px 0px transparent;
+        }
+    }
+}
+

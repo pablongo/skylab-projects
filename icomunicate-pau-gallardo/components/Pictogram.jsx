@@ -2,20 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSpeechSynthesis } from 'react-speech-kit';
 
-import styles from './Pictogram.module.scss';
+import styles from '../styles/Pictogram.module.scss';
 
 export default function Pictogram({ pictogram }) {
-  const { image, text } = pictogram;
+  const { image, title } = pictogram;
   const { speak } = useSpeechSynthesis();
-
   return (
     <button
       className={styles.button__container}
       type="button"
-      onClick={() => speak({ text: `${text}` })}
+      onClick={() => speak({ text: `${title}` })}
     >
       <img className={styles.button__container__img} src={`${image}`} alt="" />
-      <h2 className={styles.button__container__title}>{text}</h2>
+      <h2 className={styles.button__container__title}>{title}</h2>
     </button>
   );
 }

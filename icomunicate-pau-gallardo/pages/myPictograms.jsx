@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSession, getSession } from 'next-auth/client';
-import { useRouter } from 'next/router';
 
 import User from '../models/userModel';
 import Pictogram from '../components/Pictogram';
